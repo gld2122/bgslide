@@ -11,38 +11,35 @@ import (
 )
 
 var (
-  picList []string
-  dirFlag *string
+  photoList []string
+  dir string
 )
 
 const FLAG_HELP string = "Your Photo Directory"
 
 func main() {
 
-  dirFlag = flag.String("dir", "/Users/defreitas/Pictures/bgslide", FLAG_HELP)
+  flag.StringVar(&dir, "dir", "/Users/defreitas/Pictures/bgslide", FLAG_HELP)
   flag.Parse()
 
-	picList = getNames(*dirFlag)
-
+  // Change every 60 seconds
 	for range time.NewTicker(time.Second * 60).C {
 
-		changePhoto(rand.Intn(len(picList)))
+    // Refresh photo dir every iteration
+	  photoList = getNames(dir)
+		x := rand.Intn(len(photoList))
+	  ioutil.WriteFile("./script", []byte(src.Build(dir,photoList[x])), 0755)
+	  exec.Command("osascript", "./script").Run()
+	  exec.Command("rm", "./script").Run()
 
 	}
 
 }
 
-func changePhoto(c int) {
+// Make a slice containing the names of each file in dir
+func getNames(dir string) []string {
 
-	src.Check(ioutil.WriteFile("./script", []byte(src.Build(*dirFlag,picList[c])), 0755))
-	src.Check(exec.Command("osascript", "./script").Run())
-	src.Check(exec.Command("rm", "./script").Run())
-
-}
-
-func getNames(dirName string) []string {
-
-	f, err := os.Open(dirName)
+	f, err := os.Open(dir)
 	src.Check(err)
 
 	list, err := f.Readdirnames(0)

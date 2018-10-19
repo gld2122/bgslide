@@ -1,12 +1,13 @@
 # bgslide
-A Go script for customizing a background slideshow for macOS.
+A Go script for customizing a background photo slideshow on macOS.
 
 ## To Use
 
-1. Install package main: cd into repository and run `go build; go install`.
-2. Place desired background photos into 1 folder.
-3. Run following command `go run bgslide -dir <folder-path>`.
+1. Install package `main`: cd into repository and run `go build; go install`.
+2. Place all desired background photos into one folder. Default if no flag is
+   specified is `~/Pictures/bgslide`.
+3. Run the following command `go run bgslide -dir <folder-path>`.
 
 ## Dependencies
 
-* Full Go installation
+* Up-to-date Go installation (available at https://golang.org/)
