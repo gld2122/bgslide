@@ -1,7 +1,7 @@
 package src
 
-// Build an AppleScript to call a photo from dir. Should also work across multiple
-// desktops.
+// Builds an AppleScript to call a given photo from the background directory.
+// Should also work across multiple desktops.
 func Build(d string, f string) string {
 
 	str := "tell application \"System Events\"\n"
