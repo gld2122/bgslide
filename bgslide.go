@@ -2,11 +2,11 @@ package main
 
 import (
 
-	"io/ioutil"
-	"math/rand"
-	"os/exec"
-	"time"
-	"flag"
+  "io/ioutil"
+  "math/rand"
+  "os/exec"
+  "time"
+  "flag"
   "bgslide/src"
 
 )
@@ -30,11 +30,11 @@ func main() {
   oneCycle()
 
   // Changes background photo every 60 seconds
-	for range time.NewTicker( time.Second * 60 ).C {
+  for range time.NewTicker( time.Second * 60 ).C {
 
     oneCycle()
 
-	}
+  }
 
 }
 
