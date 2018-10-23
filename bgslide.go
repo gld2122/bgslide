@@ -15,13 +15,15 @@ var (
 
   photoList []string
   dir string
-  home string
+  seedNum int64
 
 )
 
 const FLAG_HELP string = "Your Photo Directory"
 
 func main() {
+
+  seedNum = 0
 
   flag.StringVar(&dir, "dir", src.GetDefaultDir() , FLAG_HELP)
   flag.Parse()
@@ -41,7 +43,11 @@ func main() {
 func oneCycle() {
 
   photoList = src.GetNames( dir )
+
+  rand.Seed( seedNum )
+  seedNum++
   x := rand.Intn( len( photoList ) )
+
   slc := []byte( src.Build( dir , photoList[x] ) )
 
   ioutil.WriteFile( "./script" , slc  , 0755 )
