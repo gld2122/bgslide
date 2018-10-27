@@ -11,3 +11,7 @@ Go script to customize your desktop photo slideshow on macOS.
 ## Dependencies
 
 * Up-to-date Go installation (available at https://golang.org/)
+
+## Background Directory Included
+
+All photos are from Pexels and 
