@@ -27,10 +27,10 @@ func main() {
   flag.StringVar(&dir, "dir", src.GetDefaultDir() , FLAG_HELP)
   flag.Parse()
 
-  // Change background photo when program starts (helps me debug)
+  // Change wallpaper when program starts (helps debug)
   oneCycle()
 
-  // Changes background photo every 60 seconds
+  // Changes wallpaper every 60 seconds
   for range time.NewTicker( time.Second * 60 ).C {
 
     oneCycle()
