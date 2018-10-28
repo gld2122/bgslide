@@ -8,7 +8,7 @@ func GetNames(dir string) []string {
 	f, err := os.Open(dir)
 	Check(err)
 
-	list, err := f.Readdirnames( 0 )
+	list, err := f.Readdirnames(0)
 	Check(err)
 
 	return list
