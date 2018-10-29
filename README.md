@@ -1,5 +1,5 @@
 # bgslide
-Go script to customize your desktop photo slideshow on macOS.
+Desktop wallpaper manager in Go for macOS.
 
 ## To Use
 
@@ -13,6 +13,6 @@ Go script to customize your desktop photo slideshow on macOS.
 * macOS
 * Go (https://golang.org/)
 
-## Background Directory Included
+## Wallpapers Included
 
-All photos are from Pexels and 
+All wallpapers are from Pexels.com.

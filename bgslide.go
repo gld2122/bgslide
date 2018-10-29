@@ -39,7 +39,7 @@ func oneCycle() {
 	photoList = src.GetNames(dir)
 	x := rand.Intn(len(photoList))
 
-  // Runs an AppleScript to change wallpaper
+  // AppleScript to change wallpaper
 	exec.Command("osascript", "-e", src.Build(dir, photoList[x])).Run()
 
 }
