@@ -5,29 +5,21 @@ import "os"
 // Make a slice containing the names of each file in dir
 func GetNames(dir string) []string {
 
-  if ( checkIsDir( dir ) ) {
+	f, err := os.Open(dir)
+	Check(err)
 
-	  f, err := os.Open(dir)
-	  Check(err)
+	list, err := f.Readdirnames(0)
+	Check(err)
 
-	  list, err := f.Readdirnames(0)
-	  Check(err)
-
-	  return list
-
-  } else {
-
-    return []string{dir}
-
-  }
+	return list
 
 }
 
-func checkIsDir( dir string ) bool {
+func CheckIsDir(dir string) bool {
 
-  f , err := os.Stat( dir )
-  Check(err)
+	f, err := os.Stat(dir)
+	Check(err)
 
-  return f.IsDir()
+	return f.IsDir()
 
 }
