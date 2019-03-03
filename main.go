@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bgslide/src"
 	"flag"
 	"math/rand"
 	"os/exec"
@@ -19,10 +18,10 @@ func main() {
 
 	rand.Seed(time.Now().UnixNano())
 
-	flag.StringVar(&dir, "dir", src.GetDefaultDir(), FLAG_HELP)
+	flag.StringVar(&dir, "dir", GetDefaultDir(), FLAG_HELP)
 	flag.Parse()
 
-	if src.CheckIsDir(dir) {
+	if CheckIsDir(dir) {
 
 		// Change wallpaper when program starts (helps debug)
 		oneCycle()
@@ -44,16 +43,16 @@ func main() {
 
 func oneCycle() {
 
-	photoList = src.GetNames(dir)
+	photoList = GetNames(dir)
 	x := rand.Intn(len(photoList))
 
 	// AppleScript to change wallpaper
-	exec.Command("osascript", "-e", src.BuildDir(dir, photoList[x])).Run()
+	exec.Command("osascript", "-e", BuildDir(dir, photoList[x])).Run()
 
 }
 
 func changeToPhoto() {
 
-	exec.Command("osascript", "-e", src.BuildFile(dir)).Run()
+	exec.Command("osascript", "-e", BuildFile(dir)).Run()
 
 }

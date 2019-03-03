@@ -1,4 +1,4 @@
-package src
+package main
 
 // Builds an AppleScript to call a given photo from the background directory.
 // Should also work across multiple desktops.
