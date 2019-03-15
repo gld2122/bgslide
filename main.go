@@ -18,7 +18,7 @@ func main() {
 
 	rand.Seed(time.Now().UnixNano())
 
-	flag.StringVar(&dir, "dir", GetDefaultDir(), FLAG_HELP)
+	flag.StringVar(&dir, "dir", getDefaultDir(), FLAG_HELP)
 	flag.Parse()
 
 	if CheckIsDir(dir) {

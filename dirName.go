@@ -1,10 +1,8 @@
 package main
 
-import (
-	"os/user"
-)
+import "os/user"
 
-func GetDefaultDir() string {
+func getDefaultDir() string {
 
 	return addDir(getHome())
 
