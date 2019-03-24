@@ -4,7 +4,7 @@ if [[ $# -eq 0 ]] ; then
   killall bgslide
   bgslide &
 else
-  dir=$(greadlink -f "$1")
+  file=$(greadlink -f "$1")
   killall bgslide
-  bgslide -dir $dir &
+  bgslide -dir $file &
 fi
