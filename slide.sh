@@ -1,10 +1,10 @@
 # !/bin/bash
 
 if [[ $# -eq 0 ]] ; then
-  killall bgslide
+  killall bgslide 2>/dev/null
   bgslide &
 elif [[ "$1" -eq "stop" ]] ; then
-	killall bgslide 
+	killall bgslide 2>/dev/null
 	if [[ $? -eq 1 ]] ; then
 		printf "no running instances\n"
 	else
@@ -12,6 +12,6 @@ elif [[ "$1" -eq "stop" ]] ; then
 	fi
 else
   file=$(greadlink -f "$1")
-  killall bgslide
+  killall bgslide 2>/dev/null
   bgslide -dir $file &
 fi
